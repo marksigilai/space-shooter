@@ -30,6 +30,11 @@ void Game::draw(){
 
     battleship_.draw();
 
+    for(int i = 0; i < battleship_.getBullets().size(); i++){
+        battleship_.getBullets()[i].moveUp();
+        battleship_.getBullets()[i].draw();
+    }
+
 }
 
 Battleship& Game::getBattleShip(){

@@ -1,31 +1,34 @@
 #include "../include/bullet.hpp"
-
-class Bullet {
-
-    public:
-
-        Bullet(int x, int y){
-            x_ = x;
-            y_ = y;
-        }
-
-        void moveUp(){
-
-            if( y_ < W_){
-                y_--;
-            }
-        }
-
-        void setViewport(int W, int H){
-            W_ = W;
-            H_ = H;
-        }
+#ifdef __APPLE__
+   #include <GLUT/glut.h>
+   #include <stdlib.h>
+#else
+   #include <GL/glut.h>
+#endif
 
 
-    private:
-        int x_;
-        int y_;
-        int W_;
-        int H_;
+Bullet::Bullet(int x, int y){
 
-};
+    x_ = x;
+    y_ = y;
+}
+
+void Bullet::moveUp(){
+
+    if( y_ < glutGet(GLUT_WINDOW_HEIGHT)){
+        y_ += 5;
+    }
+}
+
+void Bullet::draw(){
+
+    glColor3f(0.0, 1.0, 0.0);
+    glBegin(GL_POLYGON);
+        glVertex2i(x_ + 2, y_ + 2);
+        glVertex2i(x_ - 2, y_ - 2);
+        glVertex2i(x_ - 2, y_ + 2);
+        glVertex2i(x_ + 2, y_ - 2);
+    glEnd();
+
+}
+

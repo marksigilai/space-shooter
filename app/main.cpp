@@ -75,6 +75,9 @@ void keyboard(unsigned char key, int x, int y)
       case 77:
          game.getBattleShip().moveRight();
          break;
+      case ' ':
+         game.getBattleShip().shoot();
+         break;
    }
 }
 

@@ -39,9 +39,19 @@ void Battleship::moveLeft(){
     }
 }
 
+std::vector<Bullet>& Battleship::getBullets(){
+    return bullets_;
+}
+
 void Battleship::moveRight(){
 
     if( x_ < glutGet(GLUT_WINDOW_WIDTH)){
         x_ += 10;
     }
+}
+
+//adds a new bullet to the bullets vector with the current coordinates of the battleship
+void Battleship::shoot(){
+
+    bullets_.push_back(Bullet(x_, y_));
 }
