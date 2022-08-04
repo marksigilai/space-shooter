@@ -1,1 +1,0 @@
-//render random points shaped as stars which fall at a continuous motion

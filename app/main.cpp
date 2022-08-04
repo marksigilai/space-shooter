@@ -1,25 +1,52 @@
 #ifdef __APPLE__
-#include <GLUT/glut.h>
-#include <stdlib.h>
+   #include <GLUT/glut.h>
+   #include <stdlib.h>
 #else
-#include <GL/glut.h>
+   #include <GL/glut.h>
 #endif
+
+#include <iostream>
+#include "../include/game.hpp"
+
+
+int V_WIDTH = 640;
+int V_HEIGHT = 800;
+
+Game game;
+
+
+void renderTimer(int);
+void dropTimer(int t);
 
 
 void init(void) 
 {
+
+   //Select Pixel Format Attributes
+   glutInitDisplayMode (GLUT_RGBA | GLUT_DOUBLE);
+
+   //Configure Window
+   glutInitWindowSize (V_WIDTH, V_HEIGHT);
+   glutInitWindowPosition (100, 100);
+
+   //Create the Window and Set up Rendering Context
+   glutCreateWindow ("Space Shooter");
+
    //Put OpenGL Initializing Code here
    glClearColor(0, 0, 0, 1);
+   glMatrixMode (GL_PROJECTION);
+   gluOrtho2D (0.0, V_WIDTH, 0.0, V_HEIGHT);
+
+   game.init();
 }
 
 void display(void)
-{
-   glClear(GL_COLOR_BUFFER_BIT);
-   glLoadIdentity();
+{  
+   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+   //glLoadIdentity();
 
    //Put Drawing Code Here
-
-
+   game.draw();
 
    glutSwapBuffers();
 }
@@ -38,33 +65,57 @@ void keyboard(unsigned char key, int x, int y)
       case 'Q':
          exit(0); 
          break;
+      case 'a':
+      case 'A':
+      case 75:
+         game.getBattleShip().moveLeft();
+         break;
+      case 'd':
+      case 'D':
+      case 77:
+         game.getBattleShip().moveRight();
+         break;
    }
 }
 
+
 int main(int argc, char** argv)
 {
+
    glutInit(&argc, argv);
 
-   //Select Pixel Format Attributes
-   glutInitDisplayMode (GLUT_RGBA | GLUT_DOUBLE);
-
-   //Configure Window
-   glutInitWindowSize (640, 800);
-   glutInitWindowPosition (100, 100);
-
-   //Create the Window and Set up Rendering Context
-   glutCreateWindow ("Space Shooter");
-
+   //Configure Rendering Context
+   init ();
 
    //Connect callback functions that will respond to events
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
+   glutTimerFunc(1000, renderTimer, 0);
 
-   //Configure Rendering Context
-   init ();
+
+   glutTimerFunc(1000, dropTimer, 0);
 
    //Start listening for events
    glutMainLoop();
+
    return 0;
+}
+
+//rerenders the page every 1000ms
+void renderTimer(int t){
+
+   glutPostRedisplay();
+
+   glutTimerFunc(1000/60, renderTimer, 0);
+
+}
+
+//drops a new obstacle every 3 seconds
+void dropTimer(int t){
+
+   game.dropObstacle();
+
+   glutTimerFunc(3000, dropTimer, 0);
+
 }

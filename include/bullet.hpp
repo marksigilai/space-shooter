@@ -1,5 +1,3 @@
-#include "../include/bullet.hpp"
-
 class Bullet {
 
     public:
