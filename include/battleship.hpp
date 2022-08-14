@@ -15,6 +15,15 @@ class Battleship{
 
         void shoot();
         std::vector<Bullet>& getBullets();
+
+        int getX();
+        int getY();
+        int getWidth();
+        int getHeight();
+
+        int getLiveBulletsCount();
+
+        ~Battleship() = default;
         
     private:
         int x_;

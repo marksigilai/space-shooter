@@ -37,16 +37,22 @@ void init(void)
    glMatrixMode (GL_PROJECTION);
    gluOrtho2D (0.0, V_WIDTH, 0.0, V_HEIGHT);
 
-   game.init();
+   //game.init();
 }
 
 void display(void)
 {  
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   //glLoadIdentity();
 
    //Put Drawing Code Here
-   game.draw();
+   if(!game.isGameOver()){
+      game.detectCollisions();
+      game.draw();
+
+   }
+   else{
+      game.showMenu();
+   }
 
    glutSwapBuffers();
 }
@@ -59,6 +65,7 @@ void reshape (int w, int h)
 
 void keyboard(unsigned char key, int x, int y)
 {
+
    switch (key) {
       case 27:
       case 'q':
@@ -72,11 +79,15 @@ void keyboard(unsigned char key, int x, int y)
          break;
       case 'd':
       case 'D':
+      case GLUT_KEY_RIGHT:
       case 77:
          game.getBattleShip().moveRight();
          break;
       case ' ':
          game.getBattleShip().shoot();
+         break;
+      case 13:
+         game.start();
          break;
    }
 }
@@ -88,7 +99,7 @@ int main(int argc, char** argv)
    glutInit(&argc, argv);
 
    //Configure Rendering Context
-   init ();
+   init();
 
    //Connect callback functions that will respond to events
    glutDisplayFunc(display); 
@@ -110,15 +121,18 @@ void renderTimer(int t){
 
    glutPostRedisplay();
 
-   glutTimerFunc(1000/60, renderTimer, 0);
+   glutTimerFunc(1, renderTimer, 0);
 
 }
 
 //drops a new obstacle every 3 seconds
 void dropTimer(int t){
 
-   game.dropObstacle();
+   if(!game.isGameOver()){
+
+      game.dropObstacle();
+
+   }
 
    glutTimerFunc(3000, dropTimer, 0);
-
 }

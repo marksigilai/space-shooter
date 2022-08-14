@@ -6,14 +6,22 @@ class Bullet {
 
         void moveUp();
 
-        void setViewport(int W, int H);
+        int getX();
+        
+        int getY();
 
         void draw();
-        
+
+        void destroy();
+
+        bool isLive();
+
+        ~Bullet() = default;
+
     private:
         int x_;
         int y_;
         int W_;
         int H_;
-
+        bool isLive_;
 };

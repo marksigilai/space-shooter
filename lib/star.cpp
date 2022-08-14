@@ -9,17 +9,15 @@
 #endif
 
 
-Star::Star(){
-    
+Star::Star(){   
     x_ = 0;
     y_ = 0;
-
 }
 
 void Star::draw(){
 
     glColor3f(0.0, 1.0, 1.0);
-	glLineWidth(5.5); 
+	glLineWidth(1); 
 
 	glBegin(GL_POINTS);
       glVertex2i( x_, y_ );
@@ -34,5 +32,12 @@ Star Star::init(){
     return *this;
 }
 
+void Star::animate(){
+    y_ -= 1;
+
+    if (y_ < 0){
+        y_ = glutGet(GLUT_WINDOW_HEIGHT);
+    }
+}
 
 

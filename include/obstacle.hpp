@@ -2,16 +2,22 @@ class Obstacle {
     public:
         Obstacle();
 
-        void init();
+        void reset();
         void drop();
-        void increaseDroprate();
+        void increaseSpeed();
         void draw();
+        void destroy();
+        int getRadius();
+        int getX();
+        int getY();
         bool isDropping();
+
+        ~Obstacle() = default;
 
     private:
         int x_;
         int y_;
-        int dropRate_;
+        int speed_;
         int radius_;
         bool isDropping_;
 };
