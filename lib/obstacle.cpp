@@ -5,9 +5,9 @@
 #include <random>
 
 Obstacle::Obstacle(){
-    radius_ = rand() % 30 + 30;
+    radius_ = rand() % 40 + 20;
     x_ = rand() % glutGet(GLUT_WINDOW_WIDTH);
-    y_ = glutGet(GLUT_WINDOW_HEIGHT) + 60;
+    y_ = glutGet(GLUT_WINDOW_HEIGHT) + 70;
     speed_ = 2;
     isDropping_ = false;
 }
@@ -77,7 +77,7 @@ void Obstacle::drop(){
 
 //max drop rate is 5
 void Obstacle::increaseSpeed(){
-    int maxSpeed = 30;
+    int maxSpeed = 50;
     
     if(speed_ < maxSpeed){
         speed_ += 1;

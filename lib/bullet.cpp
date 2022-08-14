@@ -11,7 +11,7 @@ Bullet::Bullet(int x, int y){
 
 void Bullet::moveUp(){
 
-    if( y_ <= glutGet(GLUT_WINDOW_HEIGHT)){
+    if( y_ < glutGet(GLUT_WINDOW_HEIGHT)){
         y_ += 5;
     } 
     else {
