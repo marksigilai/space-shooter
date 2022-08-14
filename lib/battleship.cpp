@@ -1,11 +1,5 @@
 #include "../include/battleship.hpp"
-
-#ifdef __APPLE__
-   #include <GLUT/glut.h>
-   #include <stdlib.h>
-#else
-   #include <GL/glut.h>
-#endif
+#include <GLUT/glut.h>
 
 #include <iostream>
 
@@ -53,8 +47,8 @@ void Battleship::draw(){
     glColor3f(0.1, 0.1, 0.1);
     glBegin(GL_TRIANGLES);
         glVertex2i(x_, y_ + 20);
-        glVertex2i(x_ + 5, y_ + 5);
-        glVertex2i(x_ - 5, y_ + 5);
+        glVertex2i(x_ + 7, y_ + 2);
+        glVertex2i(x_ - 7, y_ + 2);
 	glEnd();
 
 

@@ -1,12 +1,6 @@
 #include "../include/star.hpp"
 #include <random>
-
-#ifdef __APPLE__
-   #include <GLUT/glut.h>
-   #include <stdlib.h>
-#else
-   #include <GL/glut.h>
-#endif
+#include <GLUT/glut.h>
 
 
 Star::Star(){   
@@ -33,7 +27,7 @@ Star Star::init(){
 }
 
 void Star::animate(){
-    y_ -= 1;
+    --y_;
 
     if (y_ < 0){
         y_ = glutGet(GLUT_WINDOW_HEIGHT);

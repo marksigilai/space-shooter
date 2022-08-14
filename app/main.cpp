@@ -1,10 +1,6 @@
-#ifdef __APPLE__
-   #include <GLUT/glut.h>
-   #include <stdlib.h>
-#else
-   #include <GL/glut.h>
-#endif
 
+#include <GLUT/glut.h>
+#include <stdlib.h>
 #include <iostream>
 #include "../include/game.hpp"
 
@@ -108,7 +104,7 @@ int main(int argc, char** argv)
    glutTimerFunc(1000, renderTimer, 0);
 
 
-   glutTimerFunc(1000, dropTimer, 0);
+   glutTimerFunc(1000, dropTimer, 3000);
 
    //Start listening for events
    glutMainLoop();
@@ -133,6 +129,5 @@ void dropTimer(int t){
       game.dropObstacle();
 
    }
-
-   glutTimerFunc(3000, dropTimer, 0);
+   glutTimerFunc(t, dropTimer, t - 2);
 }

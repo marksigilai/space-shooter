@@ -1,11 +1,6 @@
 #include "../include/obstacle.hpp"
 
-#ifdef __APPLE__
-   #include <GLUT/glut.h>
-   #include <stdlib.h>
-#else
-   #include <GL/glut.h>
-#endif
+#include <GLUT/glut.h>
 
 #include <random>
 
@@ -35,7 +30,7 @@ void Obstacle::draw(){
         
         glBegin(GL_TRIANGLE_FAN);
             glVertex2f(x_, y_);
-            for (int i = 0; i <= 20; i++)   {
+            for (int i = 0; i <= 20; ++i)   {
                 glVertex2f ((x_ + ((radius_) * cos(i * double(2) * pi / 20))), (y_ + ((radius_) * sin(i * double(2) * pi / 20))));
             }
         glEnd();
@@ -48,7 +43,7 @@ void Obstacle::draw(){
             
             glBegin(GL_TRIANGLE_FAN);
                 glVertex2f(x_, y_);
-                for (int i = 0; i <= 20; i++)   {
+                for (int i = 0; i <= 20; ++i)   {
                     glVertex2f ((x_ + ((radius_ - j) * cos(i * double(2) * pi / 20))), (y_ + ((radius_ - j) * sin(i * double(2) * pi / 20))));
                 }
             glEnd();
@@ -60,7 +55,7 @@ void Obstacle::draw(){
         
         glBegin(GL_TRIANGLE_FAN);
             glVertex2f(x_, y_);
-            for (int i = 0; i <= 20; i++)   {
+            for (int i = 0; i <= 20; ++i)   {
                 glVertex2f ((x_ + ((5) * cos(i * double(2) * pi / 20))), (y_ + ((5) * sin(i * double(2) * pi / 20))));
             }
         glEnd();

@@ -1,10 +1,5 @@
 #include "../include/bullet.hpp"
-#ifdef __APPLE__
-   #include <GLUT/glut.h>
-   #include <stdlib.h>
-#else
-   #include <GL/glut.h>
-#endif
+#include <GLUT/glut.h>
 
 
 Bullet::Bullet(int x, int y){

@@ -1,11 +1,6 @@
 #include "../include/game.hpp"
 
-#ifdef __APPLE__
-   #include <GLUT/glut.h>
-   #include <stdlib.h>
-#else
-   #include <GL/glut.h>
-#endif
+#include <GLUT/glut.h>
 
 #include <random>
 
