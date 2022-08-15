@@ -16,7 +16,6 @@ install(DIRECTORY DESTINATION "${CMAKE_INSTALL_PREFIX}/bin")
 
 #file(MAKE_DIRECTORY ${INSTALL_DIR})
 
-install(PROGRAMS tmp_cmake/space_shooter DESTINATION "${CMAKE_INSTALL_PREFIX}/bin")
 
 file(WRITE ${CMAKE_INSTALL_PREFIX}/bin/demo.sh
     "#!/usr/bin/env bash
@@ -26,3 +25,5 @@ file(WRITE ${CMAKE_INSTALL_PREFIX}/bin/demo.sh
     # Or maybe ${CMAKE_INSTALL_PREFIX}/bin/main
     ./space_shooter options
 ")
+
+install(PROGRAMS demo.sh DESTINATION "${CMAKE_INSTALL_PREFIX}/bin")
