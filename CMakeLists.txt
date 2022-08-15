@@ -2,18 +2,18 @@ cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lGLU -lglut -lGL")
-set(INSTALL_DIR "${PROJECT_SOURCE_DIR}bin/demo")
+#set(INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/bin/demo")
 
-project(space_shooter LANGUAGES CXX)
+project(demo LANGUAGES CXX)
 
-add_executable(space_shooter app/main.cpp lib/battleship.cpp lib/game.cpp lib/star.cpp lib/obstacle.cpp lib/bullet.cpp)
+add_executable(demo app/main.cpp lib/battleship.cpp lib/game.cpp lib/star.cpp lib/obstacle.cpp lib/bullet.cpp)
 
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 
-target_link_libraries(space_shooter ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
+target_link_libraries(demo ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
 
-install(DIRECTORY DESTINATION ${INSTALL_DIR})
+#install(DIRECTORY DESTINATION ${INSTALL_DIR})
 
 #file(MAKE_DIRECTORY ${INSTALL_DIR})
 
-install(TARGETS space_shooter DESTINATION ${INSTALL_DIR})
+install(TARGETS demo DESTINATION "${CMAKE_INSTALL_PREFIX}/bin/")
