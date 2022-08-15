@@ -1,5 +1,5 @@
 #!/bin/bash
 cmd_dir=$(dirname "$0")
 ss_program="$cmd_dir/space_shooter"
-echo "Running hello program"
+echo "Running Space Shooter..."
 $ss_program
