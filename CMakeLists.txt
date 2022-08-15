@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lGLU -lglut -lGL")
+set(INSTALL_DIR "/app")
 
 project(space_shooter LANGUAGES CXX)
 
@@ -11,4 +12,4 @@ include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 
 target_link_libraries(space_shooter ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
 
-install(PROGRAMS space_shooter DESTINATION bin/demo)
+install(TARGETS space_shooter RUNTIME DESTINATION ${INSTALL_DIR})
