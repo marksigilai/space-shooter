@@ -1,5 +1,5 @@
 #include "../include/bullet.hpp"
-#include <GLUT/glut.h>
+#include <GL/glut.h>
 
 
 Bullet::Bullet(int x, int y){

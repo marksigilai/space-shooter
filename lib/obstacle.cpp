@@ -1,12 +1,12 @@
 #include "../include/obstacle.hpp"
 
-#include <GLUT/glut.h>
+#include <GL/glut.h>
 
 #include <random>
 
 Obstacle::Obstacle(){
     radius_ = rand() % 40 + 20;
-    x_ = rand() % glutGet(GLUT_WINDOW_WIDTH);
+    x_ = rand() % (glutGet(GLUT_WINDOW_WIDTH) - radius_);
     y_ = glutGet(GLUT_WINDOW_HEIGHT) + 70;
     speed_ = 2;
     isDropping_ = false;
