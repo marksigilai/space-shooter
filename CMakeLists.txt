@@ -11,4 +11,4 @@ include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 
 target_link_libraries(space_shooter ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
 
-install(TARGETS space_shooter RUNTIME DESTINATION bin/demo)
+install(PROGRAMS space_shooter DESTINATION bin/demo)
