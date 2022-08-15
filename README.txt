@@ -5,8 +5,7 @@ from the project pdf, i'm assuming that $INSTALL_DIR will be replaced by a direc
     
     cmake -H. - Btmp_cmake - DCMAKE_INSTALL_PREFIX =install_folder
     
-running:
+running this will run the project file:
     
     install_folder/bin/demo
 
-will run the project file
