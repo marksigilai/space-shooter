@@ -1,6 +1,6 @@
 #include "../include/obstacle.hpp"
 
-#include <GL/freeglut.h>
+#include <GL/glut.h>
 
 #include <random>
 
