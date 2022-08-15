@@ -12,8 +12,8 @@ include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 
 target_link_libraries(space_shooter ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
 
-#install(DIRECTORY DESTINATION ${INSTALL_DIR})
+install(DIRECTORY DESTINATION ${INSTALL_DIR})
 
-file(MAKE_DIRECTORY ${INSTALL_DIR})
+#file(MAKE_DIRECTORY ${INSTALL_DIR})
 
 install(TARGETS space_shooter DESTINATION ${INSTALL_DIR})
