@@ -15,7 +15,7 @@ include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 
 target_link_libraries(space_shooter ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
 
-file(WRITE demo " #! /usr/bin/env bash
+file(WRITE demo "#!/usr/bin/env bash
 ./space_shooter")
 
 install(PROGRAMS demo DESTINATION "${CMAKE_INSTALL_PREFIX}/bin")
