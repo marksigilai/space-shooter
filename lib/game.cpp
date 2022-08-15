@@ -1,7 +1,7 @@
 #include "../include/game.hpp"
 
 #include <GL/glut.h>
-
+#include <cstring>
 #include <random>
 
 
