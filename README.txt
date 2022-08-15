@@ -3,7 +3,7 @@ Since this is a OpenGL project using GLUT to render a window, the assignment pre
 
 from the project pdf, i'm assuming that $INSTALL_DIR will be replaced by a directory name when running the makefile takes the directory name and creates it ie:
     
-    cmake -H. - Btmp_cmake - DCMAKE_INSTALL_PREFIX =install_folder
+    cmake -H. -Btmp_cmake -DCMAKE_INSTALL_PREFIX=install_folder
     
 running this will run the project file:
     
