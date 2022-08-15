@@ -1,6 +1,5 @@
 #include "../include/battleship.hpp"
-#include <GL/glut.h>
-
+#include <GLUT/glut.h>
 #include <iostream>
 
 Battleship::Battleship(){

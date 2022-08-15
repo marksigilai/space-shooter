@@ -1,6 +1,6 @@
 #include "../include/game.hpp"
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <cstring>
 #include <random>
 

@@ -1,6 +1,6 @@
 #include "../include/star.hpp"
 #include <random>
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 
 
 Star::Star(){   

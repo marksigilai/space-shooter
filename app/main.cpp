@@ -1,5 +1,5 @@
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <stdlib.h>
 #include <iostream>
 #include "../include/game.hpp"
