@@ -7,4 +7,4 @@ add_executable(space_shooter app/main.cpp lib/battleship.cpp lib/game.cpp lib/st
 
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 
-target_link_libraries(testas ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
+target_link_libraries(space_shooter ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
