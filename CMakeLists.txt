@@ -17,7 +17,7 @@ install(DIRECTORY DESTINATION "${CMAKE_INSTALL_PREFIX}/bin")
 #file(MAKE_DIRECTORY ${INSTALL_DIR})
 
 
-file(WRITE ${CMAKE_INSTALL_PREFIX}/bin/demo.sh
+file(WRITE ${CMAKE_INSTALL_PREFIX}/bin/demo
     "#!/usr/bin/env bash
     # Note that './main' is relative from whatever directory you are in
     # Use just main assuming the install prefix is in your bath
@@ -29,7 +29,7 @@ file(WRITE ${CMAKE_INSTALL_PREFIX}/bin/demo.sh
 
 # add execute permissions
 file(
-    COPY ${CMAKE_INSTALL_PREFIX}/bin/demo.sh
+    COPY ${CMAKE_INSTALL_PREFIX}/bin/demo
     DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/
     FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
 )
