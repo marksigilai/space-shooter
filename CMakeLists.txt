@@ -5,4 +5,6 @@ project(space_shooter LANGUAGES CXX)
 
 add_executable(space_shooter app/main.cpp lib/battleship.cpp lib/game.cpp lib/star.cpp lib/obstacle.cpp lib/bullet.cpp)
 
-target_link_libraries(space_shooter "-framework OpenGL" "-framework GLUT")
+include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
+
+target_link_libraries(testas ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
