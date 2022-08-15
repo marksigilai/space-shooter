@@ -15,29 +15,8 @@ include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 
 target_link_libraries(space_shooter ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
 
-file(WRITE demo "
-    #! /usr/bin/env bash
-
-    # Print an error message and exit.
-    panic()
-    {
-        echo "ERROR: $@"
-        exit 1
-    }
-
-    # Get the directory in which the currently running script is located.
-    cmd_dir=$(dirname "$0") || panic "cannot determine command directory"
-
-    hello_program="$cmd_dir/hello"
-    goodbye_program="$cmd_dir/goodbye"
-
-    echo "Running hello program"
-    $hello_program || panic "hello program failed"
-
-    echo "Running goodbye program"
-    $goodbye_program || panic "goodbye program failed"
-
-")
+file(WRITE demo " #! /usr/bin/env bash
+./space_shooter")
 
 install(PROGRAMS demo DESTINATION "${CMAKE_INSTALL_PREFIX}/bin")
 
