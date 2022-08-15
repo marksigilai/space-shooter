@@ -16,10 +16,10 @@ include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 target_link_libraries(space_shooter ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
 
 file(WRITE demo "#!/bin/bash
-cmd_dir=$(dirname "$0") || panic "cannot determine command directory"
-ss_program="$cmd_dir/space_shooter"
-echo "Running hello program"
-$ss_program || panic "hello program failed"
+cmd_dir=$(dirname \"$0\")
+ss_program=\"$cmd_dir/space_shooter\"
+echo \"Running hello program\"
+$ss_program
 ")
 
 install(PROGRAMS demo DESTINATION "${CMAKE_INSTALL_PREFIX}/bin")
